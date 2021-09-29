@@ -5,7 +5,7 @@ const DIVIDER = '---'
 const MATCH_V = /^v\d/
 
 const fetchTags = async (options, remote) => {
-  const format = `%(refname:short)${DIVIDER}%(creatordate:short)`
+  const format = `%(refname:lstrip=-1)${DIVIDER}%(creatordate:short)`
   const tags = (await cmd(`git tag -l --format=${format} ${options.appendGitTag}`))
     .trim()
     .split('\n')
